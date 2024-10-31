@@ -50,13 +50,10 @@ public class CallApi {
     public String get_apicall_param(int index,String param) {
 
        JSONObject arr_element = (JSONObject) json_content.get(index);
-       if (arr_element.get(param)== Long) {
-           String param_content = Long.toString(arr_element.get(param));
-       }
-       else {
-           String param_content = (String) arr_element.get(param);
-       }
+       System.out.println(arr_element.get(param).getClass());
+       String param_content;
 
+       param_content = arr_element.get(param).toString();
        return param_content;
     }
 
