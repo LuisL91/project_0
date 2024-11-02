@@ -46,11 +46,29 @@ public class CallApi {
         }
 
     }
+    public void inform_response_elements() {
+
+
+        for (int i=0;i<json_content.size();++i) {
+            System.out.println("element" + " " + i);
+
+        }
+
+    }
+    public void inform_params_set() {
+
+        JSONObject arr_element = (JSONObject) json_content.get(0);
+
+        Object keys = arr_element.keySet();
+        System.out.println(keys);
+
+        }
+
+
 
     public String get_apicall_param(int index,String param) {
 
        JSONObject arr_element = (JSONObject) json_content.get(index);
-       System.out.println(arr_element.get(param).getClass());
        String param_content;
 
        param_content = arr_element.get(param).toString();

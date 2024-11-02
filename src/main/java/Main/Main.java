@@ -4,6 +4,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import java.util.Scanner;
 
 import java.net.URI;
 import java.net.http.HttpRequest;
@@ -21,9 +22,35 @@ public class Main {
         CallApi api = new CallApi("https://jsonplaceholder.typicode.com/users/1/albums");
         JSONArray json_array = api.json_content;
         System.out.println(json_array);
-        api.enum_response_elements();
-        String param_content = api.get_apicall_param(0,"id");
+        //api.enum_response_elements();
+
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("Elementos de la llamada");
+        api.inform_response_elements();
+        System.out.println("Set de parámetros");
+        api.inform_params_set();
+
+        System.out.println("Enter element param and index:");
+
+        // String input
+        String param = myObj.nextLine();
+
+        // Numerical input
+        int index = myObj.nextInt();
+        String param_content = api.get_apicall_param(index,param);
         System.out.println(param_content);
+
+
+
+        /*Scanner scan_obj =  new Scanner(System.in);
+        System.out.println("introduce el índice del elemento");
+        int index = scan_obj.nextInt();
+        System.out.println("introduce el parámetro");
+        String param = scan_obj.nextLine();
+ */
+
+        //String param_content = api.get_apicall_param(index,param);
+        //System.out.println(param_content);
 
 
         /*
